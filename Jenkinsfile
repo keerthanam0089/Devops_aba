@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                bat 'docker run -d -p 3000:3000 app app:js'
+                bat 'docker run --name app app:js'
             }
         }
     }
