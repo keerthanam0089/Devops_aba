@@ -11,14 +11,11 @@ pipeline {
                 bat 'docker build -t app:js .'
             }
         }
-      stage('Run Docker Container') {
-    steps {
-        sh """
-        docker rm -f app || true
-        docker run --name devops app:js
-        """
-    }
-}
+    stage('Run Docker Container') {
+            steps {
+                bat 'docker run -d --name app1 app:js'
+            }
+        }
 
 
 
