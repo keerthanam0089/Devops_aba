@@ -13,12 +13,15 @@ pipeline {
         }
        stage('Run Docker Container') {
     steps {
-        sh """
-        docker rm -f app || true
-        docker run --name app app:js
-        """
+        script {
+            bat """
+            docker ps -a | findstr app && docker rm -f app || echo "No container to remove"
+            docker run --name app app:js
+            """
+        }
     }
 }
+
 
     }
 }
