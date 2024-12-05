@@ -15,7 +15,7 @@ pipeline {
     steps {
         sh """
         docker rm -f app || true
-        docker run --name app app:js
+        docker run --name devops app:js
         """
     }
 }
