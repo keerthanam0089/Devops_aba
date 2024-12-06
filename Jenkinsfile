@@ -11,6 +11,11 @@ pipeline {
                 bat 'docker build -t app:js .'
             }
         }
+        stage('Run Docker Container') {
+            steps {
+                bat 'docker run --name app app:js'
+            }
+        }
     
 
 
